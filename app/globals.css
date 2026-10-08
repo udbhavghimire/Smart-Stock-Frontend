@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/*
+ * Neutral placeholder theme (spec §4: colours and fonts come from CSS variables
+ * so the team's design can be applied later without restructuring).
+ */
+:root {
+  --background: #f6f7f9;
+  --surface: #ffffff;
+  --foreground: #16181d;
+  --muted: #5b6270;
+  --border: #d9dde3;
+  --primary: #1f4fd1;
+  --primary-hover: #1a43b3;
+  --primary-foreground: #ffffff;
+  --danger: #b42318;
+  --danger-surface: #fef3f2;
+  --brand-panel: #16181d;
+  --brand-panel-foreground: #f6f7f9;
+  --focus-ring: #1f4fd1;
+
+  /* Stat card gradients */
+  --stat-violet-from: #6a3fd0;
+  --stat-violet-to: #4c5ad6;
+  --stat-blue-from: #12408f;
+  --stat-blue-to: #0b5cb5;
+  --stat-sky-from: #0a6aa8;
+  --stat-sky-to: #0a86b8;
+  --stat-green-from: #0a7d5a;
+  --stat-green-to: #0b6d63;
+
+  /* Charts */
+  --chart-1: #4c5ad6;
+  --chart-2: #0b84d6;
+  --chart-3: #12a1a1;
+  --chart-4: #8a5be0;
+  --chart-5: #8aa0c2;
+  --chart-band: #0b84d6;
+  --chart-line: #12408f;
+  --chart-history: #5b6270;
+
+  /* Priority badges */
+  --badge-high-bg: #e8e4fb;
+  --badge-high-fg: #4a2fb0;
+  --badge-medium-bg: #dcecfb;
+  --badge-medium-fg: #0b4f94;
+  --badge-low-bg: #eceef2;
+  --badge-low-fg: #4b5260;
+
+  /* Status banners */
+  --status-ok-bg: #e4f5ec;
+  --status-ok-fg: #0a6b4b;
+  --status-warn-bg: #fff3d6;
+  --status-warn-fg: #7a4f00;
+  --status-crit-bg: #fde8e6;
+  --status-crit-fg: #a1281c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1115;
+    --surface: #171a20;
+    --foreground: #eceef2;
+    --muted: #a0a7b4;
+    --border: #2c313a;
+    --primary: #5b84f0;
+    --primary-hover: #7396f3;
+    --primary-foreground: #0f1115;
+    --danger: #f97066;
+    --danger-surface: #2a1513;
+    --brand-panel: #1c2028;
+    --brand-panel-foreground: #eceef2;
+    --focus-ring: #7396f3;
+
+    --chart-1: #7b87f0;
+    --chart-2: #4aa8f0;
+    --chart-3: #3cc4c4;
+    --chart-4: #aa88f0;
+    --chart-5: #8fa3c4;
+    --chart-band: #4aa8f0;
+    --chart-line: #7bb8f5;
+    --chart-history: #a0a7b4;
+
+    --badge-high-bg: #2e2552;
+    --badge-high-fg: #cfc3fb;
+    --badge-medium-bg: #17304f;
+    --badge-medium-fg: #a9d0f7;
+    --badge-low-bg: #272b33;
+    --badge-low-fg: #b4bac6;
+
+    --status-ok-bg: #12301f;
+    --status-ok-fg: #7fdcb0;
+    --status-warn-bg: #3a2d0c;
+    --status-warn-fg: #f2c869;
+    --status-crit-bg: #3a1714;
+    --status-crit-fg: #f59a92;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-danger: var(--danger);
+  --color-danger-surface: var(--danger-surface);
+  --color-brand-panel: var(--brand-panel);
+  --color-brand-panel-foreground: var(--brand-panel-foreground);
+  --color-focus-ring: var(--focus-ring);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Stat cards */
+.stat-violet { background-image: linear-gradient(135deg, var(--stat-violet-from), var(--stat-violet-to)); }
+.stat-blue { background-image: linear-gradient(135deg, var(--stat-blue-from), var(--stat-blue-to)); }
+.stat-sky { background-image: linear-gradient(135deg, var(--stat-sky-from), var(--stat-sky-to)); }
+.stat-green { background-image: linear-gradient(135deg, var(--stat-green-from), var(--stat-green-to)); }
+
+/* Priority badges (text always shown, never colour alone) */
+.badge-high { background: var(--badge-high-bg); color: var(--badge-high-fg); }
+.badge-medium { background: var(--badge-medium-bg); color: var(--badge-medium-fg); }
+.badge-low { background: var(--badge-low-bg); color: var(--badge-low-fg); }
+
+/* Status banners */
+.status-ok { background: var(--status-ok-bg); color: var(--status-ok-fg); }
+.status-warn { background: var(--status-warn-bg); color: var(--status-warn-fg); }
+.status-crit { background: var(--status-crit-bg); color: var(--status-crit-fg); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
